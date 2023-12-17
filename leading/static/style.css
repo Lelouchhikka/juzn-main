@@ -1,0 +1,682 @@
+@font-face {
+    font-family: 'Golos'; /* Имя, которое вы будете использовать для шрифта */
+    src: url('fonts/golos/GolosText-VariableFont_wght.ttf') format('truetype');
+    /* Дополнительные форматы шрифта, если необходимо */
+    font-weight: normal; /* Или другие веса шрифта, если применимо */
+    font-style: normal; /* Или italic, если применимо */
+  }
+body{
+    font-family: 'Golos';
+}
+.carousel-indicators {
+    bottom:3rem;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust the alpha channel to control darkness */
+  }
+  .carousel-item{
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Высота = 9 / 16 * 100% (соотношение сторон 16:9) */
+    overflow: hidden;
+  }
+  .carousel-image{
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Чтобы изображение заполняло контейнер без искажений */
+  }
+.carousel-caption{
+    top:25%;
+    width: 786px;
+  height: 288px;
+    bottom: auto;
+    text-align: start;
+}
+.carousel-caption h1{
+    color: #FFF;
+    font-family: Golos;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 72px; /* 128.571% */
+}
+arousel-caption p{
+    width: 640px;
+    top: 0;
+    left: 0;
+    font-family: "Golos-TextMedium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 32px;
+}
+.carousel-indicators{
+    background-color: #0000005b;
+    border-radius: 20px;
+    right: 65%;
+}
+.carousel-indicators [data-bs-target]{
+    height: 0.5rem;
+width: 0.5rem;
+    border-radius: 100%;
+    text-indent:0;
+}
+.carousel-control-prev-icon{
+    height: 15px;
+    width: 15px;
+}
+.carousel-control-next-icon{
+    height: 15px;
+    width: 15px;
+}
+.box {
+    width: 140px;
+    height: 52px;
+  }
+  
+  .box .rectangle {
+    width: 140px;
+    height: 52px;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    border-radius: 56px;
+    opacity: 0.56;
+  }
+.carousel-control-div{
+    position: absolute;
+    bottom: 20%;
+    width: 140px;
+    height: 52px;
+    background-color: #000000;
+    border-radius: 56px;
+    opacity: 0.56;
+    text-align: center;
+    z-index: 10;
+}
+.carousel-control-nav{
+    display: inline-block;
+    background-color: #ffffff00;
+    color: #ffffff00;
+    border: 0;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+.nav-link {
+    color:white;
+}
+.lang-div{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.lang-div .active{
+    margin: 0;
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.392);
+    border-radius: 15px;
+}
+.text-div{
+
+    margin-left:15%;
+    margin-right: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: #424858;
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 400;
+line-height: 2.25rem; /* 150% */ 
+}
+.company-div{
+    margin-top: 5%;
+    background-size:cover; 
+    padding-left: 15%;
+    padding-right: 15%;
+height: 46.86619rem;
+    display: flex;
+    justify-content: center;
+   background-image: url('svgs/Map.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+.h1-company{
+    color: #424858;
+font-family: Golos;
+font-size: 3.5rem;
+font-style: normal;
+font-weight: 500;
+line-height: 4rem; /* 114.286% */
+}
+.num-company{
+    margin-top: 5%;
+    color: #DA221A;
+font-family: Golos;
+font-size: 5rem;
+font-style: normal;
+font-weight: 500;
+line-height: 5.5rem; /* 110% */
+}
+.num-company p{
+    width: 10rem;
+    color: #424858;
+    font-family: Golos;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem; /* 125% */
+}
+
+.num-company-mini{
+    margin-top: 5%;
+    color: #DA221A;
+    font-family: Golos;
+    font-size: 2.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 3rem; /* 109.091% */
+    
+}
+.navbar-inner {
+    background:transparent;
+}
+.prem-svg{
+    width: 1.75rem;
+height: 1.75rem;
+flex-shrink: 0;
+}
+
+.num-company-mini p{
+    color: #424858;
+    width: 22.5rem;
+    font-family: Golos;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.125rem; /* 128.571% */
+    
+}
+.admission{
+    width: auto;
+height: 944px;
+flex-shrink: 0;
+background-color: #FFF;
+border-radius: 25px;
+}
+.admission h1{
+    padding-top: 5%;
+    margin-bottom: 0;
+    margin-left: 5%;
+    color: #424858;
+font-family: Golos;
+font-size: 56px;
+font-style: normal;
+font-weight: 500;
+line-height: 72px; /* 128.571% */
+}
+.category-div{
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    max-width: fit-content;
+}
+.admission{
+    flex-shrink: 0;
+    background-color: #FFF;
+    border-radius: 25px;
+    justify-content: center;
+    height: 64rem;
+}
+.admission .category{
+    margin-top: 5%;
+    flex: 1; /* Distribute remaining space evenly among category elements */
+    padding: 1rem; 
+}
+.admission .category .img-border{
+    width: 5.5rem;
+    height: 5.5rem;
+    stroke-width: 1px;
+    border-radius: 50%;
+    padding: 5%;
+    border: 2px solid #DFDFEA;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  align-items: center;
+  display: flex;
+}
+.img-border{
+    stroke-width: 1px;
+    border-radius: 50%;
+    padding: 5%;
+    border: 2px solid #DFDFEA;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  align-items: center;
+  display: flex;
+}
+.admission .category p{
+    color: #424858;
+font-family: Golos;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: 26px; /* 130% */
+    margin-bottom: 0px;
+}
+.admission .category .sery {
+    width: 22.5rem;
+color: #868A94;
+font-family: Golos;
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.625rem; /* 130% */
+}
+.hr-category{
+    margin-top: 5%;
+    width: 90%;
+height: 1px;
+flex-shrink: 0;
+    border-radius: 12px;
+background: #DFDFEA;
+}
+.history-div{
+
+    height: 7rem;
+    margin-top: 1rem;
+    flex-shrink: 0;
+    background-color: #FFF;
+    border-radius: 25px;
+    justify-content: center;
+}
+.history-cont{
+    margin-top: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: auto;
+}
+.info-div{
+    border-radius: 25px;
+    padding-left: 5%;
+    margin-top: 5%;
+    margin-bottom: auto;
+    height: 30rem;
+    background-color: #FFF;
+}
+.info-div h1{
+    color:  #868A94;
+font-family: Golos;
+font-size: 2rem;
+font-style: normal;
+font-weight: 500;
+line-height: 2.75rem; /* 137.5% */}
+.info-div p{
+    color: #18103B;
+font-family: Golos;
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 500;
+line-height: 2.25rem; /* 150% */
+margin-bottom: 0;
+}
+.info-div h6{
+    color: #868A94;
+text-align: right;
+font-family: Golos;
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 400;
+line-height: 2.25rem; /* 150% */
+}
+.info-top{
+    
+    margin-top: 5%;
+}
+.rb {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+  }
+  
+  .border-wrapper {
+    border: 2px solid #DFDFEA; /* Black border */
+    border-radius: 25px; /* Border radius */
+    overflow: hidden; /* Hide overflowing content */
+    width: auto;
+  }
+  
+  .form-check {
+    display: inline-block; /* Set form-checks to inline-block */
+    margin: 0; /* Adjust margin as needed */
+    padding: 0;
+  }
+  
+  .form-check-input {
+    display: none; /* Hide the default radio button */
+  }
+  
+  .form-check-label {
+    user-select: none; 
+    display: inline-block;
+    padding: 10px 20px;
+ 
+    cursor: pointer;
+  }
+  
+  .form-check-input:checked + .form-check-label {
+    background-color: red; /* Background color when checked */
+    border-radius: 25px; /* Border radius */
+    border: 1px solid; /* Border color */
+    color: white;
+  }
+  
+  
+    /* Carousel styles */
+    .MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
+    .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+        .MultiCarousel .MultiCarousel-inner .item { float: left;}
+        .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; }
+    .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
+    .MultiCarousel .leftLst { left:0; }
+    .MultiCarousel .rightLst { right:0; }
+    
+        .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; }
+
+    .pad15 img{
+        border-radius: 25px;
+        width: 100%;
+    }
+.brands-h1{
+    font-family: Golos;
+font-size: 20px;
+font-weight: 500;
+line-height: 26px;
+letter-spacing: 0em;
+text-align: left;
+}
+.brands img{
+    filter: grayscale(100%)
+}
+.brands img:hover{
+    filter: grayscale(0%);
+}
+.global-brands img{
+    filter: grayscale(100%)
+    
+}
+.global-brands img:hover{
+    filter: grayscale(0%);
+}
+.img-brand{
+    display: flex;
+      flex: 1 0 21%; /* explanation below */
+  margin: 5px;
+    max-width: 20%;
+}
+.ready-img {
+    filter: grayscale(100%);
+display: flex;
+  max-width: 20%;
+ margin-left: 0;
+  margin-top: 2%;
+  margin-right: 4%;
+  margin-bottom: 2%;
+}
+.ready-img:hover {
+    filter: grayscale(0%);
+  }
+.part-h1{
+    font-family: Golos;
+font-size: 56px;
+font-weight: 500;
+line-height: 72px;
+letter-spacing: 0em;
+text-align: left;
+
+}
+
+.part-p{
+    font-family: Golos;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0em;
+text-align: left;
+max-width: 476px;
+}
+
+.partwith-h1{
+    height: 144px;
+    font-family: Golos;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    max-width: 640px;
+    text-align: left;
+    color: #424858;
+
+}
+.btn-part{
+    font-family: Golos;
+font-size: 24px;
+font-weight: 500;
+line-height: 32px;
+letter-spacing: 0em;
+text-align: left;
+background: #DA221A; color: #FFF; text-align: left; border-radius: 10px; height: 64px; display: flex; justify-content: space-between; align-items: center;
+}
+.btn-part-ul{
+      text-decoration: none;
+
+    color: #424858;
+font-family: Golos;
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 500;
+line-height: 2rem; /* 133.333% */
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* remove the gap so it doesn't close */
+    z-index: 2;
+}
+.btn-part:hover .dropdown-menu .overlay {
+  display: block;
+}
+.overlay{
+      display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Черный полупрозрачный фон */
+  z-index: 2;
+}
+.dropdown{
+    z-index: 5;
+}
+.dropdown:hover #dropdownMenuLink1{
+background: #F0F0F4;
+    color: #424858;
+;
+}
+.gotov-div{
+    display: flex;
+    flex-direction: column;
+    margin-top:5%;
+}
+.gotov-h1{
+    font-family: Golos;
+font-size: 56px;
+font-weight: 500;
+line-height: 72px;
+letter-spacing: 0em;
+text-align: left;
+}
+footer{
+    background: #F0F0F4;
+}
+footer p{
+    font-family: Golos;
+font-size: 14px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 0em;
+text-align: left;
+max-width: 287px;
+}
+footer h2{
+    font-family: Golos;
+font-size: 24px;
+font-weight: 500;
+line-height: 32px;
+letter-spacing: 0em;
+text-align: left;
+
+}
+footer h6{
+    font-family: Golos;
+font-size: 14px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 0em;
+text-align: left;
+}
+footer h5{
+color: #25136E;
+font-family: Golos;
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 500;
+line-height: 2rem; /* 133.333% */
+text-decoration-line: underline;
+
+}
+footer h3{
+    font-family: Golos;
+font-size: 14px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 0em;
+text-align: left;
+color: #25136E;
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Выставляем высокий z-index, чтобы всплывающее окно оказалось выше остальных элементов */
+  }
+  
+  .popup-form {
+    display: flex;
+    flex-direction: column;
+      height: 95%;
+    width: 50%;
+    max-width: 640px;
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: start;
+  }
+  .text-form{
+    border: #EBEBEB 1px solid;
+    border-radius: 5px;
+    width: 560px;
+    max-height: 48px;
+    height: 10%;
+    width: 100%;
+  }
+
+  .file-upload-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  /* Style the file input */
+  .file-upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+  }
+
+  /* Style the custom button */
+  .custom-upload-button {
+    width: 100%;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #F3F3F4;
+    text-align: center;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .popup-form h2{
+    font-family: Golos;
+font-size: 40px;
+font-weight: 500;
+line-height: 48px;
+letter-spacing: 0em;
+text-align: left;
+
+  }
+  .popup-form label{
+    font-family: Golos;
+font-size: 16px;
+font-weight: 500;
+line-height: 20px;
+letter-spacing: 0em;
+text-align: left;
+
+  }
+  
+  .close-btn {
+  
+    font-size: 24px;
+    cursor: pointer;
+    color: #DA221A
+    ; /* Цвет закрытия окна (белый) */
+  }
+  .div-yug{
+      width: 530px;
+  }
+  #expandImg{
+      width: 40px;
+      height: 40px;
+  }
+  #expandImg1{
+      width: 40px;
+      height: 40px;
+  }
+
+
+
+  

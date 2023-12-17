@@ -1,0 +1,710 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar and Fullscreen Carousel</title>
+  <!-- Bootstrap CSS 5 -->
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-5.0.2-dist/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar mx-5 mt-4">
+    <a class="navbar-brand" href="#"><img src="{% static 'Group 106.png' %}"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto justify-content-around w-75">
+      <li class="nav-item">
+        <a class="nav-link " href="#CompanyDiv">Компания</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#admission">Преимущества</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#projects">Проекты</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#part">Партнёрам</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#contacts">Контакты</a>
+      </li>
+    </ul>
+    <ul class="lang-div justify-content-center d-flex">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Қаз </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Рус </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Қаз </a>
+          </li>
+    </ul>
+  </div>
+  <button id="openFormBtn" class="btn btn-light" type="button">Стать партнёром</button>
+</nav>
+<div id="overlay" class="overlay"></div>
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup-form">
+    <form id="myForm">
+   <row class="d-flex flex-row justify-content-between"> <h1>Заявка</h1> <span class="close-btn" id="closeFormBtn">&times;</span></row>
+
+        <div class="flex-column d-flex"><label>Роль  </label>
+    <div class="btn-group ">
+      <button type="button" class="btn  dropdown-toggle text-start" style="background-color: #F3F3F4;" data-bs-toggle="dropdown" aria-expanded="false">
+        <span id="selectedOption">Выберите роль</span>
+      </button>
+
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#" onclick="updateButtonText('Поставщик')">Поставщик</a></li>
+        <li><a class="dropdown-item" href="#" onclick="updateButtonText('Покупатель')">Покупатель</a></li>
+        <li><a class="dropdown-item" href="#" onclick="updateButtonText('Прочие обращения')">Прочие обращения</a></li>
+      </ul>
+    </div>
+            </div>
+    <label for="FIO" class="mt-2 d-flex flex-row">ФИО <p style="color: red;">*</p></label>
+    <input id="FIO" type="text" class="text-form"/>
+    <label for="Number" class="mt-2 d-flex flex-row">Номер телефона <p style="color: red;">*</p></label>
+    <input id="Number" type="text" class="text-form"/>
+    <label for="Email" class="mt-2 d-flex flex-row">Email <p style="color: red;">*</p></label>
+    <input id="Email" type="text" class="text-form"/>
+    <label class="mt-2">Компания</label>
+    <input type="text" class="text-form"/>
+    <label class="mt-2">Текст обращения</label>
+    <input type="text" style="height: 20%; max-height: 128px
+    ;" class="text-form"/>
+
+    <div class="file-upload-container mt-2">
+      <input type="file" class="file-upload" id="fileUpload">
+      <label for="fileUpload" class="custom-upload-button">Прикрепить файл</label>
+    </div>
+    <label class="mt-2 d-flex flex-row "><p style="color: red;">*</p> Обязательные к заполнению поля</label>
+    <hr class="mt-3 mb-3">
+    <button  class="btn btn-success" type="submit" >Отправить</button>
+     </form>
+    <!-- Ваши элементы формы здесь -->
+  </div>
+</div>
+
+
+
+<div id="carouselExampleCaptions" class="carousel slide justify-content-center position-relative" data-bs-ride="carousel">
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'photos/image1.jpg' %}" class="carousel-image" alt="...">
+      <div class="overlay"></div>
+      <div class="carousel-caption d-none d-md-block pb-5">
+        <h1>Сеть супермаркетов «ЮЖНый» — одна из самых узнаваемых торговых сетей Казахстана</h1>
+        <p style="color: #FFF; font-family: Golos; font-size: 1.5rem; font-style: normal; font-weight: 500; line-height: 2rem;">Мы — группа компаний с собственным логистическим центром, автопарком, производством, оснащённое современным европейским оборудованием.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'photos/image2.jpg' %}" class="carousel-image" alt="...">
+      <div class="overlay"></div>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-indicators bottom-1 d-flex align-items-center">
+
+    <!-- Previous Button -->
+    <button style="box-sizing: border-box; display: flex; align-items: center; width:1rem" class="carousel-control-prev-icon" type="button"
+      
+    data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+  
+    <!-- Carousel Indicators -->
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+  
+    <!-- Next Button -->
+    <button style="box-sizing: border-box; display: flex; align-items: center;width:1rem;" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+  
+
+
+
+</div>
+
+{% for text_block in text_blocks %}
+<div style="width: 2.5rem;
+  height: 0.125rem;;
+  flex-shrink: 0;
+  background: #DA221A;
+  position: absolute;
+  margin-top: 6%;
+  margin-left: 10%;"></div>
+<div class="d-flex flex-row col-auto text-div justify-content-between">
+    <div class="d flex-column ">
+
+        <p style="width: 530px;">{{ text_block.content_ru_b1 }}</p>
+    </div>
+    <div class="d flex-column" style="margin-left: 30px">
+        <p style="width: 560px;">{{ text_block.content_ru_b2 }}</p>
+    </div>
+</div>
+{% endfor %}
+
+{% for stat_block in stat_blocks %}
+<div id="CompanyDiv" style="padding-bottom: 5%" >
+    <div class="company-div justify-content-start d-flex flex-column">
+        <h1 class="h1-company">Компания в цифрах
+        </h1>
+        <div class="d-flex row-cols-4">
+        <div class="num-company">{{ stat_block.supermarket }}
+            <p class="">
+                Супермаркетов
+в сети в 3-х городах
+Казахстана
+            </p>
+        </div>
+        <div class="num-company">{{ stat_block.year }}
+            <p>
+                Лет на рынке
+Казахстана
+            </p>
+        </div>
+        </div>
+        <div class="d-flex row-cols-4">
+            <div class="num-company-mini">>{{ stat_block.employee }}
+                <p class="">
+                    Сотрудников
+                </p>
+            </div>
+            <div class="num-company-mini">{{ stat_block.sklad }} м&sup2
+                <p>Складских помещений долговременного хранения,
+                    с доступом к железнодорожным путям
+                </p>
+            </div>
+            </div>
+
+            <div class="d-flex row-cols-4">
+                <div class="num-company-mini">{{ stat_block.square_all }} м&sup2
+                    <p class="">
+                        Общая площадь...
+                    </p>
+                </div>
+                <div class="num-company-mini">{{ stat_block.square_mart }} м&sup2
+                    <p>Торговая площадь
+                    </p>
+                </div>
+                </div>
+    </div>
+
+</div>
+{% endfor %}
+
+
+<div id="admission" style="background-color: #F0F0F4; padding: 3rem;">
+    <div class="admission">
+        <h1>Преимущества</h1>
+        <div class="category-div col-12 ">
+            <div class="category">
+                <div class="icon-div border-1 border-dark w-auto">
+
+                    <div class="img-border">
+                                            <img src="{% static 'svgs/flag.svg' %}">
+
+                    </div>
+
+                </div>
+                <p>14 магазинов находятся в Караганде и Темиртау в разных районах города,
+                    включая самые крупные торговые дома. 2 филиала базируются в столице – Астане.</p>
+            </div>
+            <div class="category">
+                <div class="icon-div border-1 border-dark w-auto">
+                    <div class="img-border"><img src="{% static 'svgs/layers.svg' %}"></div></div>
+                <p>Большой ассортимент продуктов питания и не продуктовых товаров.</p>
+                <p class="sery">Более 40 тысяч наименований.</p>
+            </div>
+            <div class="category">
+                <div class="icon-div border-1 border-dark w-auto">
+                    <div class="img-border"><img src="{% static 'svgs/shopping cart.svg' %}"></div></div>
+                <p>Мы являемся крупнейшим импортером товаров категорий: бакалейные продукты, кондитерские изделия, напитки, товары для дома и др.</p>
+            </div>
+        </div>
+        <div class="hr-category mx-auto"></div>
+        <div class="category-div col-12 ">
+            <div class="category">
+                <div class="icon-div border-1 border-dark w-auto">
+                    <div class="img-border"><img src="{% static 'svgs/thumb up.svg' %}"></div></div>
+                <p>Имеем собственное производство, оснащённое современным европейским оборудованием —
+                    9  кондитерско-кулинарных цехов, 7 пекарен.</p>
+            </div>
+            <div class="category">
+                <div class="icon-div border-1 border-dark w-auto">
+                    <div class="img-border"><img src="{% static 'svgs/globe.svg' %}"></div></div>
+                <p>Ежегодно наши менеджеры посещают выставки продовольственных и не продовольственных товаров в Европе и Российской Федерации</p>
+                <p class="sery">Аnuga, Ambiente, Food Expo,
+Homi Milano, HouseHold Expo, Maison&Objet и тд.</p>
+            </div>
+            <div class="category">
+                <div class="icon-div border-1 border-dark w-auto">
+                    <div class="img-border"><img src="{% static 'svgs/users.svg' %}"></div></div>
+                <p>Наши сотрудники регулярно участвуют в мастер-классах
+                    и конференциях по различным направлениям</p>
+            </div>
+        </div>
+
+    </div>
+    <div id="history-divv" class="history-div d-flex justify-content-between">
+      <div class="history-cont d-flex flex-row justify-content-between">
+        <h1><img style="position: relative;
+  left: -1rem;" src="{% static 'svgs/bookmark.svg' %}"> История компании</h1>
+      </div>
+      <button class="btn" style="margin-right:5%;" type="button" onclick="toggleDiv('hiddenDiv', 'expandImg', 'history-divv')">
+        <img id="expandImg" src="{% static 'svgs/expand_more_FILL0_wght400_GRAD0_opsz24.svg' %}">
+      </button>
+    </div>
+
+    <div id="hiddenDiv" class="history-div  justify-content-between m-0 " style="border-radius: 0 0px 15px 15px;
+     display: none;height: auto">
+    <hr style="margin-top: 0px;">
+     {% for history_block in history_blocks %}
+
+
+      <row class="d-flex flex-row" style="margin-left: 5%; margin-right: 5%;">
+
+        <div class="col-3"><h4 style="color: #868A94;
+font-family: Golos;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 125% */">{{ history_block.title }}</h4></div>
+        <div class="col-9"><p style="color: #18103B;
+font-family: Golos;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 125% */">{{ history_block.content_ru }}</p></div>
+      </row>
+          {% if not forloop.last %}
+    <hr  style="margin-left: 5%;
+  margin-right: 5%;">
+  {% endif %}
+      {% endfor %}
+    </div>
+
+
+    <div id="geogr" class="history-div d-flex justify-content-between">
+        <div class="history-cont d-flex flex-row justify-content-between">
+
+            <h1><img style="position: relative;
+  left: -1rem;" src="{% static 'svgs/map pin.svg' %}"> География присутствия</h1>
+        </div>
+        <button class="btn" style="margin-right:5%;" type="button" onclick="toggleDiv('hiddenDiv1', 'expandImg1', 'geogr')">
+          <img id="expandImg1" src="{% static 'svgs/expand_more_FILL0_wght400_GRAD0_opsz24.svg' %}">
+        </button>
+    </div>
+    <div id="hiddenDiv1" class="history-div  justify-content-between m-0 " style="border-radius: 0 0px 15px 15px;
+    display: none;">
+        <hr style="margin-top: 0px;">
+      <div class="d-flex flex-row" style="margin-left: 5%; margin-right: 5%;">
+        <div class="col-6">
+          <row>Астана</row>
+        </div>
+
+        <div class="col-6">
+            <div class="d-flex flex-row justify-content-between">
+          <div class="d-flex flex-column">
+          ул Абая
+          </div>
+                <div style="color: #868A94;
+text-align: right;
+font-family: Golos;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 125% */">
+                    Гастроном
+                </div>
+            </div>
+            <hr>
+      <div class="d-flex flex-row justify-content-between">
+          <div class="d-flex flex-column">
+          ул Абая
+          </div>
+                <div style="color: #868A94;
+text-align: right;
+font-family: Golos;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 125% */">
+                    Гастроном
+                </div>
+            </div>
+
+    </div>
+
+    </div>
+      <hr  style="margin-left: 5%;
+  margin-right: 5%;">
+
+
+   </div>
+    <div class="info-div d-flex">
+        <div class="d-flex flex-column col-6" style="margin-top: 5%;">
+          <h1>На данный момент «ЮЖНый» входит в группу компаний, включающую в себя:</h1>
+
+        </div>
+        <div class="col-6" style="margin-top: 5%; padding-right: 5%;">
+            <div class="d-flex flex-row justify-content-between" >
+                <div class="col-auto flex-row d-flex align-items-center"> <img  src="{% static 'svgs/basket.svg' %}" class="m-0"
+                     height="24px" width="36px"> <p>Торговые дома «Галерея» и «Раха»</p></div>
+            </div>
+
+            <hr style="margin-top: 1rem; margin-bottom: 1rem">
+            <div class="d-flex flex-row justify-content-between" >
+                <div class="col-7 flex-row d-flex align-items-center"> <img  src="{% static 'svgs/basket.svg' %}" class="m-0"
+                     height="24px" width="36px"> <p>Сеть магазинов «Dome»</p></div>
+                     <div> <h6>2 филиала</h6></div>
+            </div>
+
+                        <hr style="margin-top: 1rem; margin-bottom: 1rem">
+
+            <div class="d-flex flex-row justify-content-between" >
+                <div class="col-7 flex-row d-flex align-items-center"> <img  src="{% static 'svgs/basket.svg' %}" class="m-0"
+                     height="24px" width="36px"> <p>Сеть аптек «Apotheke»</p></div>
+                     <div> <h6>6 филиала</h6></div>
+            </div>
+                        <hr style="margin-top: 1rem; margin-bottom: 1rem">
+
+            <div class="d-flex flex-row justify-content-between" >
+                <div class="col-7 flex-row d-flex align-items-center"> <img  src="{% static 'svgs/basket.svg' %}" class="m-0" height="24px" width="36px"> <p>Химчистка «Кристалл»</p></div>
+
+            </div>
+                       <hr style="margin-top: 1rem; margin-bottom: 1rem">
+
+            <div class="d-flex flex-row justify-content-between" >
+                <div class="col-7 flex-row d-flex align-items-center"> <img  src="{% static 'svgs/basket.svg' %}" class="m-0"
+                     height="24px" width="36px"> <p>Кондитерская «Shanti»</p></div>
+            </div>
+                        <hr style="margin-top: 1rem; margin-bottom: 1rem">
+            <div class="d-flex flex-row justify-content-between" >
+                <div class="col-7 flex-row d-flex align-items-center w-auto"> <img  src="{% static 'svgs/truck.svg' %}" class="m-0"
+                     > <p style=" margin-left: 0.5rem;
+color: #868A94;
+font-family: Golos;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.25rem; /* 125% */">Собственный логистический центр с автопарком грузовых автомашин</p></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div >
+  <div id="projects" class="rb">
+  <div class="border-wrapper">
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Южный" checked>
+    <label class="form-check-label form-check-label1" for="flexRadioDefault1">
+      Южный
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Гастроном" >
+    <label class="form-check-label form-check-label2" for="flexRadioDefault2">
+      Гастроном
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" value="Dome">
+    <label class="form-check-label form-check-label3" for="flexRadioDefault3">
+      Dome
+    </label>
+  </div>
+</div>
+
+</div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="MultiCarousel" data-items="1,3,3,3" data-slide="1" id="MultiCarousel"  data-interval="1000">
+            <div class="MultiCarousel-inner">
+                <div class="item">
+                    <div class="pad15">
+                        <img src="{% static 'photos/1imgCar.png' %}">
+                    </div>
+                </div>
+                <div class="item">
+                  <div class="pad15">
+                    <img src="{% static 'photos/2imgCar.png' %}">
+                </div>
+                </div>
+                <div class="item">
+                  <div class="pad15">
+                    <img src="{% static 'photos/1imgCar.png' %}">
+                </div>
+                </div>
+                <div class="item">
+                  <div class="pad15">
+                    <img src="{% static 'photos/2imgCar.png' %}">
+                </div>
+                </div>
+                <div class="item">
+                  <div class="pad15">
+                    <img src="{% static 'photos/1imgCar.png' %}">
+                </div>
+                </div>
+
+
+            </div>
+            <button class="btn btn-light leftLst" style="border-radius: 100%; padding: 0.5rem;left:1%"><img src="{% static 'svgs/left.svg' %}"></button>
+            <button class="btn btn-light rightLst" style="border-radius: 100%; padding: 0.5rem;right:1%"><img src="{% static 'svgs/left.svg' %}" style="transform: rotate(180deg);"></button>
+        </div>
+	</div>
+</div>
+<div class="d-flex flex-row mx-5">
+  <div class="d-flex col-6 flex-column">
+    <h1 class="brands-h1">Локальные бренды</h1>
+    <hr style="margin-right: 1.5rem;" class="brands-hrr">
+    </div>
+    <div class="d-flex col-6 flex-column">
+      <h1 class="brands-h1 ms-2">Глобальные бренды</h1>
+    <hr style="margin-left: 1.5rem;" class="brands-hrl">
+
+    </div>
+</div>
+<div class="d-flex flex-row mx-5">
+  <div class="d-flex col-6 flex-column">
+  
+    <div class="brands d-flex flex-row justify-content-between   align-items-center flex-wrap me-2">
+      <img  src="{% static 'svgs/local-company/image 23.svg' %}">
+      <img  src="{% static 'svgs/local-company/image 24.svg' %}">
+      <img src="{% static 'svgs/local-company/image 25.svg' %}">
+      <img src="{% static 'svgs/local-company/image 26.svg' %}">
+      <img src="{% static 'svgs/local-company/image 27.svg' %}">
+      <img src="{% static 'svgs/local-company/image 28.svg' %}">
+        <div id="company1" style=" display: none;flex-wrap: wrap;;justify-content: inherit" class="brands">
+<img  class="img-brand" src="{% static 'svgs/local-company/image 29.svg' %}">
+      <img  class="img-brand" src="{% static 'svgs/local-company/image 30.svg' %}">
+      <img  class="img-brand" src="{% static 'svgs/local-company/image 31.svg' %}">
+        </div>
+    </div>
+  </div>
+  <div class="d-flex col-6 flex-column">
+    <div class="global-brands d-flex flex-row justify-content-between align-items-center flex-wrap ms-2">
+      <img src="{% static 'svgs/global-company/image 14.svg' %}">
+      <img src="{% static 'svgs/global-company/image 17.svg' %}">
+      <img src="{% static 'svgs/global-company/image 19.svg' %}">
+      <img src="{% static 'svgs/global-company/image 20.svg' %}">
+      <img src="{% static 'svgs/global-company/image 22.svg' %}">
+        <div id="company2" style=" display: none;flex-wrap: wrap;;justify-content: space-around" class="brands">
+  <img class="img-brand" src="{% static 'svgs/global-company/image 15.svg' %}">
+  <img class="img-brand" src="{% static 'svgs/global-company/image 16.svg' %}">
+  <img class="img-brand" src="{% static 'svgs/global-company/image 21.svg' %}">
+  <img class="img-brand" src="{% static 'svgs/global-company/image 32.svg' %}">
+  <img class="img-brand" src="{% static 'svgs/global-company/image 33.svg' %}">
+              <img class="img-brand"src="{% static 'svgs/global-company/image 34.svg' %}">
+              <img class="img-brand"src="{% static 'svgs/global-company/image 35.svg' %}">
+
+        </div>
+    </div>
+  </div>
+</div>
+      <hr class="mx-5">
+    <div class="text-center">
+        <button id="hiddenDiv2" class="" type="button" onclick="toggleDivs('company1', 'company2', 'textbrand')"
+                style="color: #424858; background: rgba(255,255,255,0);border: 0;
+ /* 125% */"> <img class="me-1" src="{% static 'svgs/+.svg' %}">
+            <p id="textbrand" style="font-family: Golos;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.25rem;">Показать больше брендов в сети</p>
+        </button>
+    </div>
+<div id="part" class="d-flex flex-row mx-5 mt-5">
+  <div class="d-flex col-6 flex-column">
+    <h1 class="part-h1">Партнёрам</h1>
+    <p class="part-p">Ваша компания может предложить нам партнёрство заполнив небольшую анкету и отправив заявку
+      по указанной ссылке</p>
+      <div class="d-flex flex-row align-items-center">
+        <img src="{% static 'svgs/check.svg' %}" style="width: 1rem;
+height: 1rem;
+flex-shrink: 0; ">&nbsp;
+        <a href="google.com" style="color: #25136E;
+font-family: Golos;
+font-size: 1rem;
+font-style: normal;margin:0px;
+font-weight: 500;
+line-height: 1.5rem; /* 150% */
+text-decoration-line: underline;">
+            Условия сотрудничества
+      </a>
+    </div>
+  </div>
+
+  <div class="d-flex col-6 flex-column">
+    <h1 class="partwith-h1">Совместно с нашими партнёрами мы работаем
+      для предоставления нашим покупателям высокого уровня сервиса, широкого ассортимента товаров
+      по конкурентной цене</h1>
+      <div class="dropdown" id="dropdown3" >
+             <a class="btn mt-2 btn-part dropdown" href="#" role="button" id="dropdownMenuLink1"
+     data-bs-toggle="dropdown" aria-expanded="false" style="padding-left: 1.5rem" >Стать партнёром <img src="{% static 'svgs/down.svg' %}"></a>
+<ul class="dropdown-menu w-100 mt-1" id="dropdown34" aria-labelledby="dropdownMenuLink1" style="border-radius: 10px;">
+  <li style="    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;"><a class="dropdownBtn-item btn-part-ul" href="#" onclick="updateButtonTextPoppup('Поставщик')">Поставщик</a></li>
+        <hr class="m-0">
+
+  <li style="    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;"><a class="dropdownBtn-item btn-part-ul" href="#" onclick="updateButtonTextPoppup('Покупатель')">Покупатель</a></li>
+          <hr class="m-0">
+
+  <li style="    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;"><a class="dropdownBtn-item btn-part-ul" href="#" onclick="updateButtonTextPoppup('Option 3')">Прочие обращения</a></li>
+
+</ul>
+      </div>
+
+
+
+  </div>
+</div>
+
+<div class="gotov-div  mx-5 pb-5">
+<h1 class="gotov-h1">Готовые и надёжные решения</h1>
+    <div class="image-container d-flex flex-row justify-content-between align-items-center flex-wrap">
+          <img class="ready-img" src="{% static 'svgs/gotovie/image 7.png' %}">
+          <img class="ready-img" src="{% static 'svgs/gotovie/image 10.png' %}">
+          <img class="ready-img" src="{% static 'svgs/gotovie/image 2.png' %}">
+          <img class="ready-img" src="{% static 'svgs/gotovie/image 3.png' %}">
+          <img class="ready-img" src="{% static 'svgs/gotovie/image 5.png' %}">
+          <img class="ready-img" src="{% static 'svgs/gotovie/image 6.png' %}">
+          <img class="ready-img" src="{% static 'svgs/gotovie/image 4.png' %}">
+          <img class="ready-img" src="{% static 'svgs/gotovie/image 8.png' %}">
+          <img class="ready-img " src="{% static 'svgs/gotovie/image 9.png' %}">
+          <img class="ready-img" src="{% static 'svgs/gotovie/image 12.png' %}">
+          <img class="ready-img" src="{% static 'svgs/gotovie/image 13.png' %}">
+          <img class="ready-img" src="{% static 'svgs/gotovie/image 11.png' %}">
+
+    </div>
+</div>
+
+
+<footer id="contacts">
+  <div class="row mx-5 pt-5 mb-5">
+    <div class="col-3 d-flex flex-row">
+      <img src="{% static 'photos/logo южный(1).png' %}" style="max-width: 180px;"/></a>
+
+        <a href="#top" id="toTopBtn" class="img-border" style="position: absolute; width: 4rem;
+height: 4rem; padding: 0;right: 3rem;border-color: #DA221A;background: #DA221A">
+                                            <img src="{% static 'up.png' %}">
+
+                    </a>
+    </div>
+  </div>
+  <div class="row mx-5 mb-5">
+    <div class="row">
+      <div class="d-flex flex-column col-3   ">
+        <p>Сеть супермаркетов «ЮЖНый» —
+          одна из самых узнаваемых торговых сетей Казахстана</p>
+      </div>
+      <div class=" d-flex flex-column col-3 ">
+        <h6>Приёмная</h6>
+        <h2>+7 (7212) 922-500</h2>
+      </div>
+      <div class=" d-flex flex-column col-6 ">
+        <h6>Головной офис</h6>
+        <h2>Республика Казахстан, </h2>
+        <h2>г. Караганда,​ улица Ермекова, 52</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row mx-5 mb-5">
+    <div class="row">
+      <div class="d-flex flex-column col-3 ">
+        <row>
+        <a style="text-decoration: none;" href="#">
+          <img src="{% static 'svgs/whatsapp 1.svg' %}">
+        </a>
+
+               <a style="text-decoration: none;" href="#">
+
+          <img src="{% static 'svgs/ig.svg' %}">
+        </a>
+
+               <a style="text-decoration: none;" href="#">
+
+          <img src="{% static 'svgs/fb.svg' %}">
+        </a>
+
+        </row>
+      </div>
+      <div class=" d-flex flex-column col-3 ">
+        <h5>info@domain.kz</h5>
+      </div>
+      <div class=" d-flex flex-column col-6 ">
+        <row class="d-flex flex-row align-items-center">
+
+          <img style="width: 1.5rem;
+height: 1.5rem; " src="{% static 'svgs/mail.svg' %}">&nbsp;<h5>  Форма обратной связи</h5>
+
+        </row>
+      </div>
+    </div>
+
+  </div>
+  <div class="row mx-5 ">
+    <div class="row">
+      <div class="d-flex flex-column col-3 ">
+        <row>
+
+          <h6>© 2023 Сеть супермаркетов «Южный»</h6>
+        </row>
+      </div>
+      <div class=" d-flex flex-column col-6 justify-content-between">
+        <row class="d-flex flex-row justify-content-between">
+          <h3>Публичная оферта</h3>
+          <h3>Согласие на сбор и обработку данных</h3>
+          <h3>Политика конфиденциальности</h3>
+
+        </row>
+      </div>
+      <div class=" d-flex flex-row col-3 justify-content-end">
+          <p style="color: #424858;
+font-family: Golos;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.25rem; /* 142.857% */">Сделано в&nbsp;</p>
+<p style="color: #25136E;
+font-family: Golos;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.25rem;
+text-decoration-line: underline;"> pit.red </p>
+      </div>
+    </div>
+
+  </div>
+</footer>
+<!-- Bootstrap JS and dependencies -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script type="text/javascript" src="{% static 'bootstrap-5.0.2-dist/js/bootstrap.min.js' %}"></script>
+<!-- Custom JavaScript to handle navbar background change -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" src="{% static 'script.js' %}"></script>
+
+</body>
+</html>
